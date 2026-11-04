@@ -4,6 +4,8 @@ An unofficial fan homage to *Satisfaction*, the 1993/94 ZX Spectrum megademo by 
 
 **▶ [Watch it live in your browser](https://oberonus.github.io/satisfaction-megademo-2026)** · **[Video on YouTube](https://www.youtube.com/watch?v=Bv_sd428ZlM)**
 
+To see the 1994 original as it was, there is also a JavaScript port of the ZX Spectrum demo: [run it in your browser](https://oberonus.github.io/satisfaction-megademo) · [source](https://github.com/Oberonus/satisfaction-megademo).
+
 This is not a remake and not the authors' work. The original artwork, fonts, map bitmap, portraits and music themes belong to their authors. Everything else (visuals, texts, soundtrack covers) is new.
 
 ## Watch
