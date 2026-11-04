@@ -2,11 +2,13 @@
 
 An unofficial fan homage to *Satisfaction*, the 1993/94 ZX Spectrum megademo by **Code Busters**, imagined as if it were made today. It is a seven-and-a-half-minute real-time WebGL2 show set to new covers of the original music.
 
+**▶ [Watch it live in your browser](https://oberonus.github.io/satisfaction-megademo-2026)** · **[Video on YouTube](https://www.youtube.com/watch?v=Bv_sd428ZlM)**
+
 This is not a remake and not the authors' work. The original artwork, fonts, map bitmap, portraits and music themes belong to their authors. Everything else (visuals, texts, soundtrack covers) is new.
 
 ## Watch
 
-Open the site, turn the sound on and press **PLAY**. It needs a browser with WebGL2 (current Chrome, Safari, Firefox or Edge). The picture fills any window from upright phone (9:16) to ultrawide (21:9). Outside that range it keeps the limit shape and centres it on black.
+Open the [site](https://oberonus.github.io/satisfaction-megademo-2026), turn the sound on and press **PLAY**. It needs a browser with WebGL2 (current Chrome, Safari, Firefox or Edge). The picture fills any window from upright phone (9:16) to ultrawide (21:9). Outside that range it keeps the limit shape and centres it on black.
 
 | Key | Action |
 |---|---|
