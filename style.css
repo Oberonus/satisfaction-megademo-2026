@@ -1,0 +1,63 @@
+@font-face { font-family: 'ZX Satisfaction'; src: url(assets/satisfaction.ttf); }
+:root { --accent: #ffe600; --ui: 'ZX Satisfaction', ui-monospace, monospace; }
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: #000; color: #fff; overflow: hidden; }
+body { font-family: var(--ui); -webkit-font-smoothing: antialiased; }
+/* Fill the window for shapes between 9:16 (phone, upright) and 21:9 (ultrawide);
+   beyond that, keep the frame at the limit and centre it on black. */
+#stage {
+  position: fixed; inset: 0; margin: auto; display: block;
+  width: min(100vw, 100vh * 21 / 9); height: min(100vh, 100vw * 16 / 9);
+}
+@supports (height: 100dvh) {
+  #stage { width: min(100vw, 100dvh * 21 / 9); height: min(100dvh, 100vw * 16 / 9); }
+}
+body.playing:not(.hud) { cursor: none; }
+
+#intro, #end {
+  position: fixed; inset: 0; display: grid; place-items: center; text-align: center;
+  background: radial-gradient(circle at 50% 40%, rgba(40,0,60,.55), rgba(0,0,0,.92) 70%);
+  z-index: 5;
+}
+#intro[hidden], #end[hidden] { display: none; }
+.intro-inner { padding: 6vmin; }
+.kicker { color: var(--accent); letter-spacing: .2em; font-size: clamp(10px, 1.6vmin, 14px); margin: 0 0 2vmin; }
+#intro h1 {
+  margin: 0; font: 900 clamp(44px, 13vmin, 150px)/0.9 system-ui, -apple-system, 'Arial Black', sans-serif;
+  letter-spacing: -0.05em; text-shadow: .05em .05em 0 #ff2bd6, -.03em -.02em 0 #00e5ff;
+}
+.end-title {
+  margin: 0; font: 900 clamp(30px, 8vmin, 92px)/0.95 system-ui, -apple-system, 'Arial Black', sans-serif;
+  letter-spacing: -0.04em; text-shadow: .05em .05em 0 #ff2bd6, -.03em -.02em 0 #00e5ff;
+}
+#end > div { padding: 6vmin; animation: endIn 2.4s ease-out both; }
+@keyframes endIn { from { opacity: 0; transform: translateY(1.5vmin); } to { opacity: 1; transform: none; } }
+.sub { font: 500 clamp(13px, 2vmin, 18px) system-ui, sans-serif; opacity: .75; margin: 2.5vmin 0 4vmin; }
+.hint { text-transform: uppercase; font-size: clamp(9px, 1.3vmin, 12px); opacity: .5; margin-top: 3vmin; letter-spacing: .05em; }
+#start, #replay {
+  font: 900 clamp(18px, 3vmin, 26px) system-ui, sans-serif; letter-spacing: .08em;
+  padding: 1.1em 2.6em; border: 0; border-radius: 999px; background: var(--accent); color: #000; cursor: pointer;
+  box-shadow: 0 0 0 0 rgba(255,230,0,.6); animation: pulse 1.31s infinite;
+}
+#start:disabled { opacity: .4; animation: none; cursor: wait; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255,230,0,.55); } 80%,100% { box-shadow: 0 0 0 1.4em rgba(255,230,0,0); } }
+
+#hud {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 4; padding: 14px 18px 16px;
+  background: linear-gradient(transparent, rgba(0,0,0,.75)); opacity: 0; transition: opacity .35s; font-size: 11px;
+}
+body.hud #hud { opacity: 1; }
+body.still #hud { display: none; }
+#hud .row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+#hud button {
+  font: inherit; color: #fff; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.2);
+  padding: 6px 10px; cursor: pointer; border-radius: 4px;
+}
+#hud button:hover, #hud button.on { background: var(--accent); color: #000; border-color: var(--accent); }
+#now { min-width: 13em; color: var(--accent); }
+#chapters { display: flex; gap: 4px; flex: 1; }
+#time { opacity: .7; }
+#seek { width: 100%; margin-top: 10px; accent-color: var(--accent); }
+#debug { position: fixed; top: 24px; left: 12px; z-index: 6; margin: 0; font: 11px ui-monospace, monospace; background: rgba(0,0,0,.6); padding: 6px 8px; }
+#error { position: fixed; top: 40%; left: 50%; transform: translateX(-50%); z-index: 9; background: #a00; padding: 12px 16px; max-width: 80vw; white-space: pre-wrap; font: 12px ui-monospace, monospace; }
+@media (max-width: 640px) { #now, #time { display: none; } #chapters button { padding: 6px 7px; } }
